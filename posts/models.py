@@ -29,6 +29,19 @@ class Post(models.Model):
             'slug':self.slug
         })
 
+    @property
+    def get_comment_count(self):
+        return Comments.objects.filter(post=self).count()
+        
+
+    @property
+    def get_view_count(self):
+        return self.postview_set.all().count()
+
+    @property
+    def get_like_count(self):
+        return self.like_set.all().count()
+
 class Comments(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

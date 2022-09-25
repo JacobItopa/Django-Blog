@@ -9,13 +9,18 @@
                 <div class="card" style="width: 18rem;">
                     <img src="{{object.thumbnail.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">{{object.title}}</h5>
+                    <h5 class="card-title">
+                        <a href="{{object.get_absolute_url}}">{{object.title}}</a></h5>
                     <p class="card-text">{{object.content|truncatechars:15}}</p>
                     <hr />
                     <p>
-                        <span>View count</span>
-                        <span>Like count</span>
-                        <span>Comment Count</span>
+                        <span class="fa-solid fa-comments ml-2">{{object.get_comment_count}}</span>
+                        <span class="fa-solid fa-eye ml-2">{{object.get_view_count}}</span>
+                        <span class="fa-solid fa-thumbs-up ml-2">{{object.get_like_count}}</span>
+                    </p>
+
+                    <p class="card-text">
+                        Posted {{object.publishdate|timesince}} ago
                     </p>
                     </div>
                 </div>
