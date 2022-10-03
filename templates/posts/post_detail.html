@@ -22,7 +22,9 @@
         <hr />
         <div>
             <h4>Enjoy this post? Give it a like</h4>
-            <a class="text-muted" href="#"><span class="fa-solid fa-thumbs-up fa-lg">{{object.get_comment_count}}</span></a>
+            <a class="text-muted" href="{{ object.get_like_url }}">
+                <span class="fa-solid fa-thumbs-up fa-lg">{{object.get_comment_count}}</span>
+            </a>
         </div>
     </div>
     </div>
